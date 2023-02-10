@@ -50,30 +50,31 @@ Studienfach <- sample(c("Statistik", "Data Science", "Informatik", "Mathe"),
 # hierbei steht 1 fuer sehr geringes Interesse und 7 fuer sehr hohes Interesse.
 
 
-Mathe_Int <- sample(0, size= 100, replace = TRUE)   # Es wird ein leerer Vektor mit 100 Nullen erstellt, diese werden im Folgenden ersetzt
-# Vorschlag: Zum Erstellen eines leeren Vektors Mathe_Int <- NULL
+Mathe_Int <-NULL   # Es wird ein leerer Vektor mit 100 Nullen erstellt, diese werden im Folgenden ersetzt
+
+
 # Die Zuordnung fuer das Studienfach Statistik mit verschiedenen Wahrscheinlichkeiten
 set.seed(0902)
 Mathe_Int[which(Studienfach == "Statistik")] <- sample(1:7, size = length(which(Studienfach == "Statistik")),  # fuer das Sampling wird die Anzahl der Studienfaecher gezaehlt
-                                                      replace = TRUE, prob = c(0.01, 0.04, 0.08, 0.14, 0.24, 0.3, 0.19))  
-# ich faende weniger rumme Zahlen besser. Und ich faende einen staerkeren Zusammenhang zwischen hohen Interesse an Mathe und Statistik besser, sowas wie:
-# Vorschlag: c(0.01, 0.03, 0.07, 0.14, 0.2, 0.25, 0.3)
+                                                      replace = TRUE, prob = c(0.01, 0.03, 0.07, 0.14, 0.2, 0.25, 0.3))  
+
 
 # Studienfach Data Science
 set.seed(0902)
 Mathe_Int[which(Studienfach == "Data Science")] <- sample(1:7, size = length(which(Studienfach == "Data Science")),
                                                           replace = TRUE, prob = c(0.5, 0.5, 0.1, 0.15, 0.2, 0.25, 0.2)) 
-# finde ich soweit gut
+
 # Studienfach Mathe
 set.seed(0902)
 Mathe_Int[which(Studienfach == "Mathe")] <- sample(1:7, size = length(which(Studienfach == "Mathe")),
                                                    replace = TRUE, prob = c(0, 0.05, 0.05, 0.1, 0.15, 0.3, 0.4))  
-# finde ich auch gut
+
 # Studienfach Informatik
 set.seed(0902)
 Mathe_Int[which(Studienfach == "Informatik")] <- sample(1:7, size = length(which(Studienfach == "Informatik")),
-                                                        replace = TRUE, prob = c(0.05, 0.15, 0.25, 0.25, 0.15, 0.075, 0.075))  
+                                                        replace = TRUE, prob = c(0.05, 0.1, 0.15, 0.25, 0.2, 0.15, 0.1))  
 # Vorschlag: c(0.05, 0.1, 0.1, 0.25, 0.25 , 0.15, 0.1)
+# ich habe die Zahlen etwas abgeändert, mit einem Mittelding zwischen unseren beiden Zahlen
 
 
 
@@ -84,8 +85,8 @@ Mathe_Int[which(Studienfach == "Informatik")] <- sample(1:7, size = length(which
 # hierbei steht 1 fuer sehr geringes Interesse und 7 fuer sehr hohes Interesse.
 
 
-Prog_Int <- sample(0, size= 100, replace = TRUE)   # Es wird ein leerer Vektor mit 100 Nullen erstellt, diese werden im Folgenden ersetzt
-# Vorschlag zum Erstellen eines leeren Vektors: Prog_Int <- NULL
+Prog_Int <- NULL   # Es wird ein leerer Vektor mit 100 Nullen erstellt, diese werden im Folgenden ersetzt
+
 
 # Studienfach Statistik, die Anzahl wird hier wieder je nach Groesse der Anzahl der Studienfachs bestimmt
 set.seed(0902)
@@ -102,9 +103,8 @@ Prog_Int[which(Studienfach == "Mathe")] <- sample(1:7, size = length(which(Studi
 # Studienfach Inforamtik 
 set.seed(0902)
 Prog_Int[which(Studienfach == "Informatik")] <- sample(1:7, size = length(which(Studienfach == "Informatik")),
-                                                       replace = TRUE, prob = c(0, 0.05, 0.05, 0.1, 0.15, 0.3, 0.4)) 
-# finde ich alles gut, bis auf Studienfach Informatik, da wuerde ich die 0.15 an fuenfter Stelle zu einer 0.1 machen und
-# stattdessen die 0.4 an siebter Stelle zu einer 0.45
+                                                       replace = TRUE, prob = c(0, 0.05, 0.05, 0.1, 0.1, 0.3, 0.45)) 
+
 
 
 
@@ -125,7 +125,7 @@ Mathe_LK[Mathe_Int <= 4] <- sample(c("ja", "nein"), length(Mathe_Int[Mathe_Int <
 
 # Dataframe erstellen
 
-
+data <- data.frame(ID = ID, Alter = Alter, Studienfach = Studienfach, Mathe_Int = Mathe_Int, Prog_Int = Prog_Int, Mathe_LK = Mathe_LK)
 
 
 
