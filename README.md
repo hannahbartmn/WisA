@@ -8,7 +8,7 @@ Autorinnen:
 Hannah Bartmann,
 Alina Breitzke,
 Maike Brochtrup, 
-Julia Pohl,
+Julia Pohl
 
 
 
