@@ -5,10 +5,10 @@ Die 3. Teilleitung für unser Modul Wissenschaftliches Arbeiten
 
 
 Autorinnen: 
-Hannah Bartmann
-Alina Breitzke
-Maike Brochtrup 
-Julia Pohl
+Hannah Bartmann,
+Alina Breitzke,
+Maike Brochtrup, 
+Julia Pohl,
 
 
 
