@@ -12,8 +12,35 @@
 # ACHTUNG Hannah und Alina nicht weiterlesen :)
 
 
+
+
+
+# Variablen:
+
+
 # hier wird die ID erstellt
 ID <- 1:100   # durchzaehlen von 1 bis 100
+
+
+
+# Alter
+# Normalverteilung, EW 25, sd 2
+set.seed(2)
+Alter <- round(rnorm(100, mean = 25, sd = 2))
+# 100 Zufallszahlen aus der Normalverteilung gezogen mit EW 25, sd 2
+# gerundet auf volle Jahre
+
+
+# Studienfach 
+# Wahrscheinlichkeiten muessen noch eintragen werden: 
+# Statistik und Data Science gleiche Wkeit, Informatik geringere Wkeit,
+# Mathe geringste Wkeit
+set.seed(5)
+Studienfach <- sample(c("Statistik", "Data Science", "Informatik", "Mathe"), 
+       100, replace = TRUE, prob = c())
+# 100 Ziehungen aus den vier Studienfächern, mit den angegebenen Wahrscheinlichkeiten
+
+
 
 
 
@@ -72,30 +99,6 @@ set.seed(0902)
 Prog_Int[which(Studienfach == "Informatik")] <- sample(1:7, size = length(which(Studienfach == "Informatik")),
                                                        replace = TRUE, prob = c(, , , , , , )) # Wahrscheinlichkeit fehlt
 
-# Variablen:
-# Alter
-# Normalverteilung, EW 25, sd 2
-
-set.seed(2)
-Alter <- round(rnorm(100, mean = 25, sd = 2))
-# 100 Zufallszahlen aus der Normalverteilung gezogen mit EW 25, sd 2
-# gerundet auf volle Jahre
-
-
-# Studienfach 
-# Wahrscheinlichkeiten muessen noch eintragen werden: 
-# Statistik und Data Science gleiche Wkeit, Informatik geringere Wkeit,
-# Mathe geringste Wkeit
-set.seed(5)
-Studienfach <- sample(c("Statistik", "Data Science", "Informatik", "Mathe"), 
-       100, replace = TRUE, prob = c())
-# 100 Ziehungen aus den vier Studienfächern, mit den angegebenen Wahrscheinlichkeiten
-
-
-
-
-
-
 
 
 
@@ -114,6 +117,8 @@ Mathe_LK[Mathe_Int <= 4] <- sample(c("ja", "nein"), length(Mathe_Int[Mathe_Int <
 # Ziehung von 100mal ja/nein mit Wkeit abhaengig davon, ob man Interesse an Mathe groesser oder kleiner gleich 4 angegeben hat
 
 
+
+# Dataframe erstellen
 
 
 
