@@ -32,12 +32,11 @@ Alter <- round(rnorm(100, mean = 25, sd = 2))
 
 
 # Studienfach 
-# Wahrscheinlichkeiten muessen noch eintragen werden: 
 # Statistik und Data Science gleiche Wkeit, Informatik geringere Wkeit,
 # Mathe geringste Wkeit
 set.seed(5)
 Studienfach <- sample(c("Statistik", "Data Science", "Informatik", "Mathe"), 
-       100, replace = TRUE, prob = c())
+       100, replace = TRUE, prob = c(0.35, 0.35, 0.2, 0.1))
 # 100 Ziehungen aus den vier Studienfächern, mit den angegebenen Wahrscheinlichkeiten
 
 
@@ -110,10 +109,9 @@ Prog_Int[which(Studienfach == "Informatik")] <- sample(1:7, size = length(which(
 Mathe_LK <- NULL
 set.seed(9)
 # default mal als <4 fuer hoehere Weit, Mathe LK gehabt zu haben, koennen wir noch abaendern
-Mathe_LK[Mathe_Int > 4] <- sample(c("ja", "nein"), length(Mathe_Int[Mathe_Int > 4]), replace = TRUE, prob = c())
+Mathe_LK[Mathe_Int > 4] <- sample(c("ja", "nein"), length(Mathe_Int[Mathe_Int > 4]), replace = TRUE, prob = c(0.8, 0.2))
 
-Mathe_LK[Mathe_Int <= 4] <- sample(c("ja", "nein"), length(Mathe_Int[Mathe_Int <= 4]), replace = TRUE, prob = c())
-# Wkeit fuer ja/nein noch eintragen
+Mathe_LK[Mathe_Int <= 4] <- sample(c("ja", "nein"), length(Mathe_Int[Mathe_Int <= 4]), replace = TRUE, prob = c(0.35, 0.65))
 # Ziehung von 100mal ja/nein mit Wkeit abhaengig davon, ob man Interesse an Mathe groesser oder kleiner gleich 4 angegeben hat
 
 
