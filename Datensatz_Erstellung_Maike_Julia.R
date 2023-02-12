@@ -56,18 +56,18 @@ Mathe_Int <-NULL   # Es wird ein leerer Vektor mit 100 Nullen erstellt, diese we
 # Die Zuordnung fuer das Studienfach Statistik mit verschiedenen Wahrscheinlichkeiten
 set.seed(0902)
 Mathe_Int[which(Studienfach == "Statistik")] <- sample(1:7, size = length(which(Studienfach == "Statistik")),  # fuer das Sampling wird die Anzahl der Studienfaecher gezaehlt
-                                                      replace = TRUE, prob = c(0.01, 0.03, 0.07, 0.14, 0.2, 0.25, 0.3))  
+                                                      replace = TRUE, prob = c(0, 0.01, 0.09, 0.15, 0.2, 0.25, 0.3))  
 
 
 # Studienfach Data Science
 set.seed(0902)
 Mathe_Int[which(Studienfach == "Data Science")] <- sample(1:7, size = length(which(Studienfach == "Data Science")),
-                                                          replace = TRUE, prob = c(0.5, 0.5, 0.1, 0.15, 0.2, 0.25, 0.2)) 
+                                                          replace = TRUE, prob = c(0.0001, 0.0049, 0.005, 0.2, 0.24, 0.3, 0.25)) 
 
 # Studienfach Mathe
 set.seed(0902)
 Mathe_Int[which(Studienfach == "Mathe")] <- sample(1:7, size = length(which(Studienfach == "Mathe")),
-                                                   replace = TRUE, prob = c(0, 0.05, 0.05, 0.1, 0.15, 0.3, 0.4))  
+                                                   replace = TRUE, prob = c(0, 0, 0.05, 0.1, 0.15, 0.3, 0.4))  
 
 # Studienfach Informatik
 set.seed(0902)
@@ -91,7 +91,7 @@ Prog_Int <- NULL   # Es wird ein leerer Vektor mit 100 Nullen erstellt, diese we
 # Studienfach Statistik, die Anzahl wird hier wieder je nach Groesse der Anzahl der Studienfachs bestimmt
 set.seed(0902)
 Prog_Int[which(Studienfach == "Statistik")] <- sample(1:7, size = length(which(Studienfach == "Statistik")),   
-                                                      replace = TRUE, prob = c(0.05, 0.05, 0.1, 0.2, 0.25, 0.2, 0.2))   
+                                                      replace = TRUE, prob = c(0, 0.05, 0.1, 0.15, 0.25, 0.25, 0.2))   
 # Studienfach Data Science
 set.seed(0902)
 Prog_Int[which(Studienfach == "Data Science")] <- sample(1:7, size = length(which(Studienfach == "Data Science")),
@@ -103,7 +103,7 @@ Prog_Int[which(Studienfach == "Mathe")] <- sample(1:7, size = length(which(Studi
 # Studienfach Inforamtik 
 set.seed(0902)
 Prog_Int[which(Studienfach == "Informatik")] <- sample(1:7, size = length(which(Studienfach == "Informatik")),
-                                                       replace = TRUE, prob = c(0, 0.05, 0.05, 0.1, 0.1, 0.3, 0.45)) 
+                                                       replace = TRUE, prob = c(0, 0, 0.01, 0.09, 0.15, 0.3, 0.45)) 
 
 
 
