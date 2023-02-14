@@ -92,7 +92,7 @@ return(rgabe) # Ausgabe der beiden Summaries
 install.packages("ggplot2")
 library(ggplot2)
 
-Visual_data <- function(data = data, n = 3, Int_Mathe = TRUE, Int_Prog = TRUE, data_Studiengang = TRUE, MatheLK = FALSE){
+Visual_data <- function(data = data, n = 3, Int_Mathe = TRUE, Int_Prog = TRUE, data_Studiengang = TRUE, MatheLK = FALSE){   # n steht dafuer, wie viele Variablen genutzt werden, moeglich sind 3 oder 4
   if(n == 3 & Int_Mathe == TRUE & Int_Prog == TRUE & data_Studiengang == TRUE & MatheLK == FALSE){
     print(ggplot(data,                                                                          # ggplot wird vom Datensatz erstellt
            aes(y = factor(Mathe_Int,                                                      # Interesse für Mathe auf y-Achse
