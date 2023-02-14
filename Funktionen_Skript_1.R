@@ -34,6 +34,9 @@
 ##########################################################
 # noch nicht fertige Funktion, jedoch eine Visualisierung fuer 3 Variablen
 
+# muss vorher geladen
+install.packages("ggplot2")
+library(ggplot2)
 
 Visual_data <- function(data = data, n = 3, Int_Mathe = TRUE, Int_Prog = TRUE, data_Studiengang = TRUE, MatheLK = FALSE){
   if(n == 3 & Int_Mathe == TRUE & Int_Prog == TRUE & data_Studiengang == TRUE & MatheLK == FALSE){
