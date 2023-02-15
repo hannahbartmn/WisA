@@ -131,16 +131,19 @@ return(rgabe) # Ausgabe der beiden Summaries
   
 ##f)
 
-# es werden Visualisierungen fuer drei Variablen erstellt. Dabei werden zwei Variablen fuer die Achsen verwendet und die dritte durch unterschiedliche
-# Farben gezeigt. Die Positionen der drei Variablen sind dabei fest gewaehlt. Man kann nur unterscheiden welche drei von Mathe_Int, Prog_Int, Studienfach und
-# Mathe_LK man gleichzeitig angezeigt werden sollen. Genutzt wird dabei das Paket "ggplot2". 
+# es werden Visualisierungen fuer drei oder vier Variablen erstellt. Dabei werden zwei Variablen fuer die Achsen verwendet und die dritte durch unterschiedliche
+# Farben gezeigt. Die Positionen der drei/ vier Variablen sind dabei fest gewaehlt. Man kann bei drei Variablen nur unterscheiden welche drei von Mathe_Int, Prog_Int, 
+# Studienfach und Mathe_LK man gleichzeitig angezeigt werden sollen. Genutzt wird dabei das Paket "ggplot2". 
 
 
-# noch nicht fertige Funktion, jedoch die Visualisierung fuer 3 Variablen
+
 
 # muss vorher geladen
+install.packages("dplyr")
+library(dplyr)
 install.packages("ggplot2")
 library(ggplot2)
+
 
 Visual_data <- function(data = data, n = 3, Int_Mathe = TRUE, Int_Prog = TRUE, data_Studiengang = TRUE, MatheLK = FALSE){   # n steht dafuer, wie viele Variablen genutzt werden, moeglich sind 3 oder 4
   if(n == 3 & Int_Mathe == TRUE & Int_Prog == TRUE & data_Studiengang == TRUE & MatheLK == FALSE){
@@ -200,8 +203,18 @@ Visual_data <- function(data = data, n = 3, Int_Mathe = TRUE, Int_Prog = TRUE, d
            y = "Interesse an Programmieren", las = 1) )
   }
   if(n==4 & Int_Mathe == TRUE & Int_Prog == TRUE & data_Studiengang == TRUE & MatheLK == TRUE){
-    # Hier muss der Code fuer vier Variablen rein
+    print(data %>%
+      ggplot(aes(y = Mathe_Int, x = Prog_Int, color = Mathe_LK)) +    # ggplot wird erstellt, bei dem die Interessen auf die Achsen kommen und farblich
+      # zwischen Mathe_LK ja oder nein entschieden wird
+      geom_point() +                                                 # es werden Punkte erstellt
+      facet_wrap(vars(Studienfach)) +                                # es wird nach der vierten Variable/ Studienfach unterschieden
+      labs(title ="Abhaengigkeit aller vier Variablen",              # Beschriftung wird hinzugef
+           subtitle = "Aufgeteilt nach Studienfach",
+           x = "Interesse an Programmieren",
+           y = "Interesse an Mathe"))
   }
+  
+  
 # Hier werden die Warnings geschrieben, falls die Variablen unzulaessig sind  
   
   # bei den Fall das n=4 ist, wird eine Warnung gegeben, falls nicht alle vier Folgevariablen TRUE gesetzt wurden
