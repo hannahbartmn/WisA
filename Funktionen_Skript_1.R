@@ -7,15 +7,31 @@
 # Eine Funktion, die verschiedene geeignete deskriptive Statistiken für metrische 
 # Variablen berechnet und ausgibt 
 
-My_Plots <- function(x, main){
+My_Plots <- function(x, main, plot = 0){
+  # wenn plot = 0 werden alle Grafiken ausgegeben; mit plot = 1:4 kann man nur einen der vier Plots ansprechen
   # x = Daten
   # main = Überschrift für alle Plots 
- par(mfrow = c(2,2)) # vier Grafiken in einen Plot 
-  # Die unterschiedlichen Grafiken 
-  hist(x, main = main) 
-  barplot(table(x), main = main)
-  boxplot(x,horizontal = TRUE, main = main)
-  plot(x, main = main) 
+  if(plot == 0){ 
+    par(mfrow = c(2,2)) # vier Grafiken in einen Plot 
+    # Die unterschiedlichen Grafiken 
+    hist(x, main = main) 
+    barplot(table(x), main = main)
+    boxplot(x,horizontal = TRUE, main = main)
+    plot(x, main = main) 
+    par(mfrow = c(1,1)) #setze die parameter zurueck 
+  }
+  if(plot == 1){
+    hist(x, main = main) 
+  }
+  if(plot == 2){
+    barplot(table(x), main = main) 
+  }
+  if(plot == 3){
+    plot(x, main = main) 
+  }
+  if(plot == 4){
+    plot(x, main = main) 
+  }
 }
 
 
