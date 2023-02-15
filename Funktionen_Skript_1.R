@@ -3,12 +3,44 @@
 
 # Funktionen a, b, c: Alina, Hannah
 
+# Funktion a) 
+# Eine Funktion, die verschiedene geeignete deskriptive Statistiken für metrische 
+# Variablen berechnet und ausgibt 
+
+My_Plots <- function(x, main){
+  # x = Daten
+  # main = Überschrift für alle Plots 
+ par(mfrow = c(2,2)) # vier Grafiken in einen Plot 
+  # Die unterschiedlichen Grafiken 
+  hist(x, main = main) 
+  barplot(table(x), main = main)
+  boxplot(x,horizontal = TRUE, main = main)
+  plot(x, main = main) 
+}
 
 
+# Funktion b) 
+# Eine Funktion, die verschiedene geeignete desktiptive Statistiken für 
+# kategoriale Variablen berechnet und ausgibt 
 
+S <- c("KA", "RA", "Abi", "HA") # Ein Datenbeispiel zum ausprobieren 
+W <- sample(S, size = 50, replace = TRUE)
 
+My_Plots_2 <- function(x, main){
+  par(mfrow = c(2,2))
+  # Ein Stabdiagramm
+  barplot(table(x), main = main)
+  # erstellt eine Vierfeldertafel 
+  matrix(c(sum(x !="KA"),length(x)- sum(x !="KA"),
+           sum(x == "RA" | x == "Abi")
+           ,length(x)-sum(x == "RA" | x == "Abi")),
+         nrow = 2, ncol = 2, byrow = TRUE, 
+         dimnames = list(c("Schulabschluss", "mittlerer_Schulabschluss"), 
+                         c("ja", "nein")))
+}
+My_Plots_2(W, main = "Bildungsabschlüsse")
 
-
+# Macht nur zwei Visualisierungen
 
 
 
