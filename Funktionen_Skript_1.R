@@ -44,7 +44,9 @@ My_Plots_2(W, main = "Bildungsabschlüsse")
 
 
 
-
+## c) 
+#Eine Funktion, die geeignete deskriptive bivariate Statistiken fuer den Zusammenhang zwischen 
+#zwei kategorialen Variablen berechnet ausgibt. 
 
 
 
