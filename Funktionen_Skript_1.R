@@ -126,6 +126,57 @@ return(rgabe) # Ausgabe der beiden Summaries
 
 
 
+## e)
+# Die Funktion kategorisiert eine numerische Variable quantilbasiert in "niedrig", "mittel" und "hoch"
+
+# ordinalskalierte Variablen koennen mit der Hilfsfunktion "ordtonum"
+# in Variablen mit numerischen Werten entsprechend ihrer Ordnung
+# umgewandelt werden
+
+quantkat <- function(x){
+  newob <- NULL # leeres Objekt wird erstellt
+uquant <- quantile(as.numeric(names(table(x))), 0.25) # das untere Quartil der sortierten numerischen Werte wird bestimmt
+oquant <- quantile(as.numeric(names(table(x))), 0.75) # ebenso das obere Quartil
+
+newob[x <= uquant] <- "niedrig" 
+# das untere Quartil dient als obere Grenze der Kategorie "niedrig".
+# alles, was unterhalb dieses Quartils liegt, wird der Kategorie "niedrig" zugeordnet.
+
+newob[x > uquant & x < oquant] <- "mittel" 
+# die Werte zwischen den beiden Quartilen werden der Kategorie "mittel" zugeordnet
+
+newob[x >= oquant] <- "hoch" 
+# das obere Quartil ist die untere Grenze fuer die Kategorie "hoch", alles was darueber liegt, wird "hoch" zugeordnet
+
+newob 
+# das in "niedrig", "mittel" und "hoch" kategorisierte Objekt wird ausgegeben.
+}
+
+
+
+
+# Beispiel
+b <- c(2, 5, 2, 6, 3, 6)
+
+quantkat(b)
+# [1] "niedrig" "mittel"  "niedrig" "hoch"    "mittel"  "hoch"
+
+
+
+
+
+# man koennte auch 0.33 und 0.66 Quantile nehmen, oder eben die Quartile. 
+# bei den Quartilen waere die mittlere Kategorie doppelt so gross wie jeweils die Extremen
+
+
+
+
+
+
+
+
+
+
 
   
   
