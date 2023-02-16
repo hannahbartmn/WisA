@@ -6,6 +6,7 @@
 # Funktion a) 
 # Eine Funktion, die verschiedene geeignete deskriptive Statistiken für metrische 
 # Variablen berechnet und ausgibt.
+
 # My_Plots gibt bei plot = 0 fuer den eingegebenen Vektor an Daten ein Histogramm, ein Barplot, ein Boxplot und ein Scatterplot.
 # Diese Einstellung ist der default, gibt man der Variable plot einen Wert von 1 bis 4, gibt die Funktion fuer
 # 1 das Histogramm, fuer 2 den Barplot, fuer 3 den Boxplot und fuer 4 den Scatterplot aus.
@@ -43,22 +44,32 @@ My_Plots <- function(x, main, plot = 0){
 
 S <- c("KA", "RA", "Abi", "HA") # Ein Datenbeispiel zum ausprobieren 
 W <- sample(S, size = 50, replace = TRUE)
+O <- sample(1:7, size=50, replace = TRUE) # Ein ordinales Datenbeispiel
 
-My_Plots_2 <- function(x, main){
-  par(mfrow = c(2,2))
-  # Ein Stabdiagramm
-  barplot(table(x), main = main)
-  # erstellt eine Vierfeldertafel 
-  matrix(c(sum(x !="KA"),length(x)- sum(x !="KA"),
-           sum(x == "RA" | x == "Abi")
-           ,length(x)-sum(x == "RA" | x == "Abi")),
-         nrow = 2, ncol = 2, byrow = TRUE, 
-         dimnames = list(c("Schulabschluss", "mittlerer_Schulabschluss"), 
-                         c("ja", "nein")))
+# der parameter ordinal kann auf FALSE gesetzt werden, wenn ein Boxplot der eingegebenen Daten keinen Sinn ergibt
+
+My_Plots_2 <- function(x, ordinal = TRUE){
+  if(ordinal == TRUE){
+    #Die Diagramme
+      par(mfrow = c(2,1))
+      #Ein Stabdiagramm
+      barplot(table(x), main = c("Saeulendiagramm fuer", deparse(substitute(x))), las = 1)
+      #Ein Boxplot
+      boxplot(x, main = c("Boxplot fuer", deparse(substitute(x))), horizontal = TRUE)
+      par(mfrow = c(1,1))
+    #Die Haufigkeitstabelle 
+      print(table(x, dnn = deparse(substitute(x))))
+  }
+  
+  if(ordinal == FALSE){
+    #Das Stabdiagramm
+      barplot(table(x), main = c("Balkendiagramm fuer", deparse(substitute(x))), horiz = TRUE, las = 1)
+    #Die Häufigkeitstabelle
+      print(table(x, dnn = deparse(substitute(x))))
+  }
 }
-My_Plots_2(W, main = "Bildungsabschlüsse")
-
-# Macht nur zwei Visualisierungen
+My_Plots_2(O, ordinal = TRUE)
+My_Plots_2(W, ordinal = FALSE)
 
 
 
