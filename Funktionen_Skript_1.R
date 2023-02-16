@@ -5,10 +5,12 @@
 
 # Funktion a) 
 # Eine Funktion, die verschiedene geeignete deskriptive Statistiken für metrische 
-# Variablen berechnet und ausgibt 
+# Variablen berechnet und ausgibt.
+# My_Plots gibt bei plot = 0 fuer den eingegebenen Vektor an Daten ein Histogramm, ein Barplot, ein Boxplot und ein Scatterplot.
+# Diese Einstellung ist der default, gibt man der Variable plot einen Wert von 1 bis 4, gibt die Funktion fuer
+# 1 das Histogramm, fuer 2 den Barplot, fuer 3 den Boxplot und fuer 4 den Scatterplot aus.
 
 My_Plots <- function(x, main, plot = 0){
-  # wenn plot = 0 werden alle Grafiken ausgegeben; mit plot = 1:4 kann man nur einen der vier Plots ansprechen
   # x = Daten
   # main = Überschrift für alle Plots 
   if(plot == 0){ 
@@ -27,7 +29,7 @@ My_Plots <- function(x, main, plot = 0){
     barplot(table(x), main = main) 
   }
   if(plot == 3){
-    plot(x, main = main) 
+    boxplot(x, main = main) 
   }
   if(plot == 4){
     plot(x, main = main) 
@@ -64,9 +66,17 @@ My_Plots_2(W, main = "Bildungsabschlüsse")
 #Eine Funktion, die geeignete deskriptive bivariate Statistiken fuer den Zusammenhang zwischen 
 #zwei kategorialen Variablen berechnet ausgibt. 
 
+#My_Plot_3 gibt zwei Kreuztabellen, eine mit absoluten Haufigkeiten und eine mit relativen Haufigkeiten, in der Konsole aus.
 
-
-
+My_Plots_3 <- function(x,y){
+  #x erster Datenvektor, y zweiter Datenvektor
+  tabelle <- table(x,y,
+                   dnn = c(deparse(substitute(x)), deparse(substitute(y)))) #uebernimmt den Namen des Datenvektors
+  cat('Tabelle mit absoluten Haufigkeiten: \n\n')
+  print(tabelle)
+  cat('\n Tabelle mit relativen Haeufigkeiten: \n\n')
+  print(prop.table(tabelle))
+}
 
 
 
