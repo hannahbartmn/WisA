@@ -11,6 +11,8 @@
 # Diese Einstellung ist der default, gibt man der Variable plot einen Wert von 1 bis 4, gibt die Funktion fuer
 # 1 das Histogramm, fuer 2 den Barplot, fuer 3 den Boxplot und fuer 4 den Scatterplot aus.
 
+random <- rnorm(50, mean = 25, sd = 2)
+
 My_Plots <- function(x, main, plot = 0){
   # x = Daten
   # main = Überschrift für alle Plots 
@@ -37,6 +39,7 @@ My_Plots <- function(x, main, plot = 0){
   }
 }
 
+My_Plots(random, main = "Versuch")
 
 # Funktion b) 
 # Eine Funktion, die verschiedene geeignete desktiptive Statistiken für 
@@ -79,7 +82,11 @@ My_Plots_2(W, ordinal = FALSE)
 
 #My_Plot_3 gibt zwei Kreuztabellen, eine mit absoluten Haufigkeiten und eine mit relativen Haufigkeiten, in der Konsole aus.
 
-My_Plots_3 <- function(x,y){
+#Datenvektoren zum ausprobieren
+O <- sample(1:7, size=50, replace = TRUE)
+P <- sample(1:7, size=50, replace = TRUE)
+
+My_Plots_3 <- function(x,y,both.ordinal = FALSE){
   #x erster Datenvektor, y zweiter Datenvektor
   tabelle <- table(x,y,
                    dnn = c(deparse(substitute(x)), deparse(substitute(y)))) #uebernimmt den Namen des Datenvektors
@@ -87,8 +94,15 @@ My_Plots_3 <- function(x,y){
   print(tabelle)
   cat('\n Tabelle mit relativen Haeufigkeiten: \n\n')
   print(prop.table(tabelle))
+
+  #Wenn beide Merkmale ordinal sind, kann man Spearman Korrelation berechnen:
+  if(both.ordinal == TRUE){
+    c <- cor(x,y,use = 'complete.obs', method = 'spearman')
+    cat('\n\n Die Spearman-Korrelation der beiden Merkmale betraegt:', c)
+  }
 }
 
+My_Plots_3(O,P,both.ordinal = TRUE)
 
 
 
