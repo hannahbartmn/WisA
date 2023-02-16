@@ -151,6 +151,11 @@ rgabe <- list(
 
 names(rgabe) <- c(names(table(dich))[1], names(table(dich))[2])
 # zu jedem Listenelement wird hinzugefuegt, auf welcher Auspraegung der dichotomen Variable die Summary basiert
+  
+  
+  # als Idee noch einen Table dazu
+  #  tabmetdich <- table(met, dich)
+  #  names(tabmetdich) <- deparse(substitute(c(met, dich))) 
 
 return(rgabe) # Ausgabe der beiden Summaries
   }
