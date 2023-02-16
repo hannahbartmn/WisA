@@ -217,13 +217,10 @@ install.packages("ggplot2")
 library(ggplot2)
 
 
-Visual_data <- function(data = data, n = 3, Int_Mathe = TRUE, Int_Prog = TRUE, data_Studiengang = TRUE, MatheLK = FALSE){   # n steht dafuer, wie viele Variablen genutzt werden, moeglich sind 3 oder 4
+Visual_data <- function(D = data, n = 3, Int_Mathe = TRUE, Int_Prog = TRUE, data_Studiengang = TRUE, MatheLK = FALSE){   # n steht dafuer, wie viele Variablen genutzt werden, moeglich sind 3 oder 4
   if(n == 3 & Int_Mathe == TRUE & Int_Prog == TRUE & data_Studiengang == TRUE & MatheLK == FALSE){
-    print(ggplot(data,                                                                          # ggplot wird vom Datensatz erstellt
-           aes(y = factor(Mathe_Int,                                                      # Interesse für Mathe auf y-Achse
-                          labels = c("sehr geringes Interesse = 1",                       # Beschriftung für die Punkte
-                                     "2", "3", "4", "5", "6",
-                                     "sehr hohes Interesse = 7")), 
+    print(ggplot(D,                                                                          # ggplot wird vom Datensatz erstellt
+           aes(y = factor(Mathe_Int),                                                     # Interesse für Mathe auf y-Achse
                x = Prog_Int,                                                              # auf die x-Achse kommt Interesse für Programmieren
                color = Studienfach)) +                                                    # es wird farblich nach Studienfach unterschieden
       geom_jitter(alpha = 1,                                                              # Farbstaerke und Groesse der Punkte im Gitter
@@ -233,11 +230,8 @@ Visual_data <- function(data = data, n = 3, Int_Mathe = TRUE, Int_Prog = TRUE, d
            y = "Interesse an Mathe", las = 1) )
   }
   if(n == 3 & Int_Mathe == TRUE & Int_Prog == TRUE & data_Studiengang == FALSE & MatheLK == TRUE){
-    print( ggplot(data,                                                                          # ggplot wird vom Datensatz erstellt
-           aes(y = factor(Mathe_Int,                                                      # Interesse für Mathe auf y-Achse
-                          labels = c("sehr geringes Interesse = 1",                       # Beschriftung für die Punkte
-                                     "2", "3", "4", "5", "6",
-                                     "sehr hohes Interesse = 7")), 
+    print( ggplot(D,                                                                          # ggplot wird vom Datensatz erstellt
+           aes(y = factor(Mathe_Int),                                                       # Interesse für Mathe auf y-Achse
                x = Prog_Int,                                                              # auf die x-Achse kommt Interesse für Programmieren
                color = Mathe_LK)) +                                                    # es wird farblich nach Mathe LK unterschieden
       geom_jitter(alpha = 1,                                                              # Farbstaerke und Groesse der Punkte im Gitter
@@ -247,11 +241,8 @@ Visual_data <- function(data = data, n = 3, Int_Mathe = TRUE, Int_Prog = TRUE, d
            y = "Interesse an Mathe", las = 1) )
   }
   if(n == 3 & Int_Mathe == TRUE & Int_Prog == FALSE & data_Studiengang == TRUE & MatheLK == TRUE){
-    print( ggplot(data,                                                                          # ggplot wird vom Datensatz erstellt
-           aes(y = factor(Mathe_Int,                                                      # Interesse für Mathe auf y-Achse
-                          labels = c("sehr geringes Interesse = 1",                       # Beschriftung für die Punkte
-                                     "2", "3", "4", "5", "6",
-                                     "sehr hohes Interesse = 7")), 
+    print( ggplot(D,                                                                          # ggplot wird vom Datensatz erstellt
+           aes(y = factor(Mathe_Int),                                                      # Interesse für Mathe auf y-Achse
                x = Studienfach,                                                              # auf die x-Achse kommt das Studienfach
                color = Mathe_LK)) +                                                    # es wird farblich nach Mathe LK unterschieden
       geom_jitter(alpha = 1,                                                              # Farbstaerke und Groesse der Punkte im Gitter
@@ -261,11 +252,8 @@ Visual_data <- function(data = data, n = 3, Int_Mathe = TRUE, Int_Prog = TRUE, d
            y = "Interesse an Mathe", las = 1))
   }
   if(n == 3 & Int_Mathe == FALSE & Int_Prog == TRUE & data_Studiengang == TRUE & MatheLK == TRUE){
-    print(ggplot(data,                                                                          # ggplot wird vom Datensatz erstellt
-           aes(y = factor(Prog_Int,                                                      # Interesse für Programmieren auf y-Achse
-                          labels = c("sehr geringes Interesse = 1",                       # Beschriftung für die Punkte
-                                     "2", "3", "4", "5", "6",
-                                     "sehr hohes Interesse = 7")), 
+    print(ggplot(D,                                                                          # ggplot wird vom Datensatz erstellt
+           aes(y = factor(Prog_Int),                                                      # Interesse für Programmieren auf y-Achse 
                x = Studienfach,                                                              # auf die x-Achse kommt das Studienfach
                color = Mathe_LK)) +                                                    # es wird farblich nach Mathe LK unterschieden
       geom_jitter(alpha = 1,                                                              # Farbstaerke und Groesse der Punkte im Gitter
@@ -275,7 +263,7 @@ Visual_data <- function(data = data, n = 3, Int_Mathe = TRUE, Int_Prog = TRUE, d
            y = "Interesse an Programmieren", las = 1) )
   }
   if(n==4 & Int_Mathe == TRUE & Int_Prog == TRUE & data_Studiengang == TRUE & MatheLK == TRUE){
-    print(data %>%
+    print(D %>%
       ggplot(aes(y = Mathe_Int, x = Prog_Int, color = Mathe_LK)) +    # ggplot wird erstellt, bei dem die Interessen auf die Achsen kommen und farblich
       # zwischen Mathe_LK ja oder nein entschieden wird
       geom_point() +                                                 # es werden Punkte erstellt
