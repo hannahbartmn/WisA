@@ -145,17 +145,15 @@ rgabe <- list(
   summary(met[dichfact == 0]), 
   
   # Summary der metrischen Variable nach der zweiten im table ausgefuehrten Auspraegung der dichotomen Variable
-  summary(met[dichfact == 1])
+  summary(met[dichfact == 1]),
+  
+  # Tabelle der beiden Variablen
+  table(dich, met, dnn = c(deparse(substitute(dich)), deparse(substitute(met))))
 )
 
 
-names(rgabe) <- c(names(table(dich))[1], names(table(dich))[2])
-# zu jedem Listenelement wird hinzugefuegt, auf welcher Auspraegung der dichotomen Variable die Summary basiert
-  
-  
-  # als Idee noch einen Table dazu
-  #  tabmetdich <- table(met, dich)
-  #  names(tabmetdich) <- deparse(substitute(c(met, dich))) 
+names(rgabe) <- c(names(table(dich))[1], names(table(dich))[2], "Tabelle")
+# zu jeder Summary wird hinzugefuegt, auf welcher Auspraegung der dichotomen Variable die Summary basiert
 
 return(rgabe) # Ausgabe der beiden Summaries
   }
