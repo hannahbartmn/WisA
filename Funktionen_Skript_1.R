@@ -9,37 +9,31 @@
 
 # My_Plots gibt bei plot = 0 fuer den eingegebenen Vektor an Daten ein Histogramm, ein Barplot, ein Boxplot und ein Scatterplot.
 # Diese Einstellung ist der default, gibt man der Variable plot einen Wert von 1 bis 4, gibt die Funktion fuer
-# 1 das Histogramm, fuer 2 den Barplot, fuer 3 den Boxplot und fuer 4 den Scatterplot aus.
+# 1 das Histogramm, fuer 2 den Boxplot.
 
 random <- rnorm(50, mean = 25, sd = 2)
 
-My_Plots <- function(x, main, plot = 0){
+My_Plots <- function(x, plot = 0){
   # x = Daten
-  # main = Überschrift für alle Plots 
   if(plot == 0){ 
-    par(mfrow = c(2,2)) # vier Grafiken in einen Plot 
+    par(mfrow = c(2,1)) # vier Grafiken in einen Plot 
     # Die unterschiedlichen Grafiken 
-    hist(x, main = main) 
-    barplot(table(x), main = main)
-    boxplot(x,horizontal = TRUE, main = main)
-    plot(x, main = main) 
+    hist(x, main = c("Saeulendiagramm fuer", deparse(substitute(x)))) 
+    boxplot(x, horizontal = TRUE, main = c("Boxplot fuer", deparse(substitute(x))))
     par(mfrow = c(1,1)) #setze die parameter zurueck 
   }
   if(plot == 1){
-    hist(x, main = main) 
+    hist(x, main = c("Saeulendiagramm fuer", deparse(substitute(x))))  
   }
   if(plot == 2){
-    barplot(table(x), main = main) 
-  }
-  if(plot == 3){
-    boxplot(x, main = main) 
-  }
-  if(plot == 4){
-    plot(x, main = main) 
+    boxplot(x, horizontal = TRUE, main = c("Boxplot fuer", deparse(substitute(x))))
   }
 }
 
-My_Plots(random, main = "Versuch")
+My_Plots(random)
+My_Plots(random, plot = 1)
+My_Plots(random, plot = 2)
+
 
 # Funktion b) 
 # Eine Funktion, die verschiedene geeignete desktiptive Statistiken für 
@@ -49,7 +43,7 @@ S <- c("KA", "RA", "Abi", "HA") # Ein Datenbeispiel zum ausprobieren
 W <- sample(S, size = 50, replace = TRUE)
 O <- sample(1:7, size=50, replace = TRUE) # Ein ordinales Datenbeispiel
 
-# der parameter ordinal kann auf FALSE gesetzt werden, wenn ein Boxplot der eingegebenen Daten keinen Sinn ergibt
+# der Parameter ordinal kann auf FALSE gesetzt werden, wenn ein Boxplot der eingegebenen Daten keinen Sinn ergibt
 
 My_Plots_2 <- function(x, ordinal = TRUE){
   if(ordinal == TRUE){
