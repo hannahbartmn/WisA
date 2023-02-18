@@ -323,6 +323,103 @@ Visual_data <- function(D = data, n = 3, Int_Mathe = TRUE, Int_Prog = TRUE, data
 
 
 
+# Weitere Visualisierung von 3 oder 4 kategorialen Variablen
+# Gibt mehrere Barplots aus, die getrennt Auspraegungen einer Variablen
+# gemeinsam mit anderen Variablen darstellen
+
+# WICHTIG: fuer a sollte die Variable mit den wenigsten Kategorien gewaehlt werden
+# a, b, c, d sind Variablen des Datensatzes, koennen theoretisch in beliebiger Reihenfolge eingegeben werden,
+# Empfehlungen:
+# a und b Studienfach und Mathe_LK beliebig gewaehlt
+# c und d z.B. Mathe_Int, Prog_Int beliebig gewaehlt
+
+
+# Wenn man 4 Variablen eingibt, wird eine warning ausgegeben, da der einelementige default-Wert von d mit
+# einem Vektor verglichen wird und dafuer nur das erste Element des Vektors genommen wird.
+# Diese warning kann ignoriert werden, die Funktion laeuft trotzdem wie gewuenscht durch
+
+ 
+data_vis2 <- function(a, b, c, d = "fehlt"){
+  
+  if(d == "fehlt"){ # Version falls es nur 3 Variablen gibt, sich der default Wert von d also nicht geaendert hat
+    
+    par(mfrow = c(ceiling(length(table(a))/2), 2)) # die Anzahl der Auspraegungen der ersten Variable wird auf 2 Spalten aufgeteilt, falls
+    # es eine ungerade Anzahl ist, wird aufgerundet, damit auf jeden Fall genug Zeilen da sind
+    
+    for(i in 1:length(table(a))){ # fuer jede Auspraegung von a wird ein Barplot erstellt
+      
+      barplot(table(b[a == names(table(a))[i]], c[a == names(table(a))[i]]), beside = TRUE, # die Auspraegungen von a werden
+              # mit der for-Schleife durchgegangen. c wird auf der x-Achse aufgetragen und jede Auspraegung von c
+              # wird aufgeteilt nach den Auspraegungen von b dargestellt 
+              
+              legend.text = names(table(b)), # diese Auspraegungen von b werden in der Legende festgehalten
+              
+              args.legend = list(bg = "transparent", title = deparse(substitute(b))),  # Name der Variable b als Titel und transparenter Hintergrund der Legende
+              
+              main = c(deparse(substitute(a)), names(table(a))[i]), # im Titel stehen Name der Variable a und die jeweils betrachtete
+              # Auspraegung von a
+              
+              xlab = deparse(substitute(c)), # c wird auf der xAchse abgebildet
+              ylab = "Häufigkeit")
+    
+    } # Ende der for-Schleife
+    
+  } # Ende der if-Bedingung falls es nur 3 Variablen gibt
+
+  
+  
+  
+  
+else{ # Verion falls es 4 Variablen gibt, d also gewaehlt wurde und nicht mehr seinen default Wert besitzt
+  
+  par(mfrow = c(length(table(a)), 2)) # Layout mit einer Zeile fuer jede Auspraegung von a, jede Zeile wird in 2 Spaltenaufgeteilt die a mit
+  # unterschiedlichen anderen Variablen darstellen
+  
+  for(i in 1:length(table(a))){ # fuer jede Auspraegung von a wird ein Barplot erstellt
+    
+    # jeweils 1. Spalte: Variablen a, b, c
+    barplot(table(b[a == names(table(a))[i]], c[a == names(table(a))[i]]), beside = TRUE, # aufgeteilt nach den Auspraegungen von a werden
+            # b und  c gemeinsam dargestellt. Dabei ist c auf der x-Achse aufgetragen und jede der Auspraegungen von c wird getrennt nach den 
+            # Auspraegungen von b betrachtet
+            
+            legend.text = names(table(b)), # diese Auspraegungen von b werden in der Legende festgehalten
+            
+            args.legend = list(bg = "transparent", title = deparse(substitute(b))), # Name der Variable b als Titel und transparenter Hintergrund der Legende
+            
+            main = c(deparse(substitute(a)), names(table(a))[i]), # im Titel stehen Name der Variable a und die jeweils betrachtete
+            # Auspraegung von a
+            
+            xlab = deparse(substitute(c)), # c wird auf der xAchse abgebildet
+            ylab = "Häufigkeit")
+    
+    
+    
+    # jeweils 2. Spalte: Variablen a, b, d
+    barplot(table(b[a == names(table(a))[i]], d[a == names(table(a))[i]]), beside = TRUE, # aufgeteilt nach den Auspraegungen von a werden
+            # b und  d gemeinsam dargestellt. Dabei ist d auf der x-Achse aufgetragen und jede der Auspraegungen von d wird getrennt nach den 
+            # Auspraegungen von b betrachtet
+            
+            legend.text = names(table(b)), # diese Auspraegungen von b werden in der Legende festgehalten
+            
+            args.legend = list(bg = "transparent", title = deparse(substitute(b))), # Name der Variable b als Titel und transparenter Hintergrund der Legende 
+            
+            main = c(deparse(substitute(a)), names(table(a))[i]), # im Titel stehen Name der Variable a und die jeweils betrachtete
+            # Auspraegung von a
+            
+            xlab = deparse(substitute(d)), # d wird auf der xAchse abgebildet
+            ylab = "Häufigkeit"
+    )
+  } # Ende der for-Schleife
+  } # Ende der else-Bedingung
+}
+
+
+
+
+
+
+
+
 
 
 
