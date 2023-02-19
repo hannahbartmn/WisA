@@ -143,6 +143,9 @@ rgabe <- list(
   
   # Tabelle der beiden Variablen
   table(dich, met, dnn = c(deparse(substitute(dich)), deparse(substitute(met))))
+                 # dnn = c(gsub("data\\$", "",deparse(substitute(dich))), gsub("data\\$", "",deparse(substitute(met))))
+             # Alternative fuer dnn, womit beim eingeben von data$met/data$dich bei denn dimnames das data$ nicht mit angezeigt wird. Funktioniert nur, wenn der eingelesene
+             # Datensatz auch data heisst
 )
 
 
