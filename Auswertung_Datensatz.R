@@ -23,5 +23,17 @@ My_Plots_2(D$Mathe_Int)
 # Im Mittel liegt das Interesse an Mathe bei 5.17 und die Standardabweichung bei 1.48. Das Interesse an Mathe in dem Datensatz scheint also sehr hoch zu sein.
 # Erkennen kann man dies auch daran, dass bei dem Boxplot 75% der Befragten einen Wert von 4 oder hoeher angegeben haben, wobei 7 sehr hohem Interesse entspricht.
 dichmetsummary(D$Mathe_LK, D$Mathe_Int)
-# Es scheint ein Zusammenhang zu bestehen zwischen der Wahl eines Mathe-LKs und dem Interesse an Mathe. Diejenigen, die kein Mathe-Lk hatten, haben im Mittel
-# einen Wert von 
+# Es scheint ein Zusammenhang zu bestehen zwischen der Wahl eines Mathe-LKs und dem Interesse an Mathe. Diejenigen, die kein Mathe-Lk hatten, haben bezueglich des 
+# Interesses im Mittel einen Wert von 4.622 und die mittleren 50% liegen zwischen den Werten 4 und 6. An der Tabelle erkennt man, dass bei dieser Gruppe haeufig
+# der mittlere Wert 4 gewaehlt wurde.
+# Bei denjenigen, die Mathe-Lk hatten, liegt das mittlere Interesse bei 5.618 und die mittleren 50 % liegen zwischen den Werten 5 und 7.
+# Es laesst sich festhalten, dass diejenigen, die Mathe-Lk hatten, einen hoeheres Interesse aufweisen, als diejenigen, die kein Mathe-Lk hatten, auch wenn dort das
+# Interesse auch nicht niedrig ist. 
+
+My_Plots_2(D$Prog_Int)
+# Im Mittel liegt das Interesse an Programmieren bei 5.19 also quasi genauso hoch wie das Interesse an Mathe. Die Werte streuen mit einer Standardabweichung von
+# 1.56 etwas mehr. Ausserdem gibt es weniger Auspraegungen von dem hoechsten Werte: Bei Interesse an Mathe lag das obere Quantil bei 7 und hier bei dem Interesse
+# an Programmieren liegt das obere QUantil bei 6.
+dichmetsummary(D$Mathe_LK, D$Prog_Int)
+# Bei dem Interesse am Programmieren und dem Mathe-Lk liegt nicht so eine grosse Verbingung wie bei dem Intersse an Mathe. Waehrend das Interesse bei der Gruppe, die 
+# an Mathe hatten im Mittel um ca. einen Punkt hoeher war, liegt die Differenz im Mittel nur bei 0.3 bei dem Interesse an Programmieren.
