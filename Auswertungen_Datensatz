@@ -1,0 +1,8 @@
+# R_Code um den Datensatz runterzuladen 
+library (readr)
+
+urlfile <- "https://raw.githubusercontent.com/hannahbartmn/WisA/main/data.csv"
+
+mydata<-read.csv(file = urlfile, sep = ";", header = TRUE)
+mydata
+View(mydata)
