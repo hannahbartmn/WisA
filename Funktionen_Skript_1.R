@@ -28,6 +28,9 @@ My_Plots <- function(x, plot = 0){
   if(plot == 2){
     boxplot(x, horizontal = TRUE, main = c("Boxplot fuer", deparse(substitute(x))))
   }
+  m <- mean(x, na.rm = TRUE)
+  s <- sd(x, na.rm=TRUE)
+  cat('\n Das aritm. Mittel des Merkmals betraegt:', m, '\n\n Die Standardabweichung des Merkmals betraegt:', s)
 }
 
 My_Plots(random)
@@ -56,6 +59,10 @@ My_Plots_2 <- function(x, ordinal = TRUE){
       par(mfrow = c(1,1))
     #Die Haufigkeitstabelle 
       print(table(x, dnn = deparse(substitute(x))))
+    
+      m <- mean(x, na.rm = TRUE)
+      s <- sd(x, na.rm=TRUE)
+      cat('\n Das aritm. Mittel des Merkmals betraegt:', m, '\n\n Die Standardabweichung des Merkmals betraegt:', s)
   }
   
   if(ordinal == FALSE){
