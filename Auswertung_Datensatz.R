@@ -45,3 +45,6 @@ dichmetsummary(D$Mathe_LK, D$Prog_Int)
 # Bei dem Interesse am Programmieren und dem Mathe-Lk liegt nicht so eine grosse Verbingung wie bei dem Intersse an Mathe. Waehrend das Interesse bei der Gruppe, die 
 # an Mathe hatten im Mittel um ca. einen Punkt hoeher war, liegt die Differenz im Mittel nur bei 0.3 bei dem Interesse an Programmieren.
 
+My_Plots_3(D$Mathe_Int, D$Prog_Int, both.ordinal = TRUE)
+# Die Korrelation zwischen Interesse an Mathe und Interesse an Programmieren liegt aber mit -0.055 nicht sehr hoch. Das Interesse an Mathe und Programmieren scheint
+# nicht miteinander verknuepft zu sein. 
