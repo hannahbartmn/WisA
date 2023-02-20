@@ -19,6 +19,13 @@ str(D)
 # Mathe_LK ist dichotom nominalskaliert: b, c, d, f
 
 #####
+
+table(quantkat(D$Mathe_Int))
+table(quantkat(D$Prog_Int))
+# Der Anteil der Personen, die ein niedriges Interesse an Mathe bzw. Programmieren angeben, liegt bei 13% bzw. 9%.
+Visual_data(D = D, MatheLK = TRUE, data_Studiengang = FALSE)
+#Visualisiert man die Angabe nach Interesse und Mathe-Lk, scheint das Interesse an Mathe durch die Angabe Mathe-Lk = ja beguenstigt zu sein.
+
 My_Plots_2(D$Mathe_Int)
 # Im Mittel liegt das Interesse an Mathe bei 5.17 und die Standardabweichung bei 1.48. Das Interesse an Mathe in dem Datensatz scheint also sehr hoch zu sein.
 # Erkennen kann man dies auch daran, dass bei dem Boxplot 75% der Befragten einen Wert von 4 oder hoeher angegeben haben, wobei 7 sehr hohem Interesse entspricht.
@@ -37,3 +44,4 @@ My_Plots_2(D$Prog_Int)
 dichmetsummary(D$Mathe_LK, D$Prog_Int)
 # Bei dem Interesse am Programmieren und dem Mathe-Lk liegt nicht so eine grosse Verbingung wie bei dem Intersse an Mathe. Waehrend das Interesse bei der Gruppe, die 
 # an Mathe hatten im Mittel um ca. einen Punkt hoeher war, liegt die Differenz im Mittel nur bei 0.3 bei dem Interesse an Programmieren.
+
