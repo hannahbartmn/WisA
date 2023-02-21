@@ -48,3 +48,36 @@ dichmetsummary(D$Mathe_LK, D$Prog_Int)
 My_Plots_3(D$Mathe_Int, D$Prog_Int, both.ordinal = TRUE)
 # Die Korrelation zwischen Interesse an Mathe und Interesse an Programmieren liegt aber mit -0.055 nicht sehr hoch. Das Interesse an Mathe und Programmieren scheint
 # nicht miteinander verknuepft zu sein. 
+
+# Altersverteilung 
+mean(D$Alter)
+sd(D$Alter)
+My_Plots(D$Alter, plot = 2)
+legend("topleft", legend = c("mean = 24.94", "     sd = 2.35"))
+# Das Durschsscnittsalter liegt bei ca 25 und die Standartabweichung bei 2.35
+
+# Verteilung der Studienfächer
+My_Plots_2(D$Studienfach, ordinal = FALSE)
+# Um sich die Häufigkeiten der einzelnen Studiengänge anzuschauen 
+
+# Studium/ Mathe und Programmieren Interesse 
+
+My_Plots_3(D$Mathe_Int, D$Studienfach == "Mathe")
+My_Plots_3(D$Mathe_Int, D$Studienfach == "Statistik")
+My_Plots_3(D$Mathe_Int, D$Studienfach == "Informatik")
+My_Plots_3(D$Mathe_Int, D$Studienfach == "Data Science")
+# Nur Personen mit einem mittelmäßigen oder hohen Intersesse an Mathe, 
+# studieren auch Data Science  
+# In den Studiengängen Mathe, Statistik und Data Science herrscht ein 
+# mittelmäßiges bis hohes interesse an Mathe. Beim Studiengang Informatik 
+# nur ein mittelmäßiges 
+
+My_Plots_3(D$Prog_Int, D$Studienfach == "Data Science")
+My_Plots_3(D$Prog_Int, D$Studienfach == "Informatik")
+My_Plots_3(D$Prog_Int, D$Studienfach == "Statistik")
+My_Plots_3(D$Prog_Int, D$Studienfach == "Mathe")
+# Besonders in den Studiengängen Informatik und Data Science liegt ein großes 
+# Interesse am programmieren vor 
+
+Visual_data(D = D, n = 3, Int_Mathe = TRUE, Int_Prog = TRUE, data_Studiengang = TRUE)
+# Hier die Ergenisse nochmal alle in einem Plot dargestellt 
