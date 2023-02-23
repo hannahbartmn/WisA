@@ -3,8 +3,7 @@ library (readr)
 
 urlfile <- "https://raw.githubusercontent.com/hannahbartmn/WisA/main/data.csv"
 
-mydata<-read.csv(file = urlfile, sep = ";", header = TRUE)
-D <- mydata
+D <-read.csv(file = urlfile, sep = ";", header = TRUE)
 View(D)
 
 #####
@@ -49,12 +48,14 @@ My_Plots_3(D$Mathe_Int, D$Prog_Int, both.ordinal = TRUE)
 # Die Korrelation zwischen Interesse an Mathe und Interesse an Programmieren liegt aber mit -0.055 nicht sehr hoch. Das Interesse an Mathe und Programmieren scheint
 # nicht miteinander verknuepft zu sein. 
 
+#####
+
 # Altersverteilung 
 mean(D$Alter)
 sd(D$Alter)
 My_Plots(D$Alter, plot = 2)
 legend("topleft", legend = c("mean = 24.94", "     sd = 2.35"))
-# Das Durschsscnittsalter liegt bei ca 25 und die Standartabweichung bei 2.35
+# Das Durchschnittssalter liegt bei ca 25 und die Standartabweichung bei 2.35
 
 # Verteilung der Studienfächer
 My_Plots_2(D$Studienfach, ordinal = FALSE)
@@ -81,3 +82,5 @@ My_Plots_3(D$Prog_Int, D$Studienfach == "Mathe")
 
 Visual_data(D = D, n = 3, Int_Mathe = TRUE, Int_Prog = TRUE, data_Studiengang = TRUE)
 # Hier die Ergenisse nochmal alle in einem Plot dargestellt 
+
+
