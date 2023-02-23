@@ -11,7 +11,7 @@
 # Diese Einstellung ist der default, gibt man der Variable plot einen Wert von 1 bis 4, gibt die Funktion fuer
 # 1 das Histogramm, fuer 2 den Boxplot.
 
-random <- rnorm(50, mean = 25, sd = 2)
+#random <- rnorm(50, mean = 25, sd = 2)
 
 My_Plots <- function(x, plot = 0){
   # x = Daten
@@ -33,18 +33,18 @@ My_Plots <- function(x, plot = 0){
   cat('\n Das aritm. Mittel des Merkmals betraegt:', m, '\n\n Die Standardabweichung des Merkmals betraegt:', s)
 }
 
-My_Plots(random)
-My_Plots(random, plot = 1)
-My_Plots(random, plot = 2)
+#My_Plots(random)
+#My_Plots(random, plot = 1)
+#My_Plots(random, plot = 2)
 
 
 # Funktion b) 
 # Eine Funktion, die verschiedene geeignete desktiptive Statistiken für 
 # kategoriale Variablen berechnet und ausgibt 
 
-S <- c("KA", "RA", "Abi", "HA") # Ein Datenbeispiel zum ausprobieren 
-W <- sample(S, size = 50, replace = TRUE)
-O <- sample(1:7, size=50, replace = TRUE) # Ein ordinales Datenbeispiel
+#S <- c("KA", "RA", "Abi", "HA") # Ein Datenbeispiel zum ausprobieren 
+#W <- sample(S, size = 50, replace = TRUE)
+#O <- sample(1:7, size=50, replace = TRUE) # Ein ordinales Datenbeispiel
 
 # der Parameter ordinal kann auf FALSE gesetzt werden, wenn ein Boxplot der eingegebenen Daten keinen Sinn ergibt
 
@@ -72,8 +72,8 @@ My_Plots_2 <- function(x, ordinal = TRUE){
       print(table(x, dnn = deparse(substitute(x))))
   }
 }
-My_Plots_2(O, ordinal = TRUE)
-My_Plots_2(W, ordinal = FALSE)
+#My_Plots_2(O, ordinal = TRUE)
+#My_Plots_2(W, ordinal = FALSE)
 
 
 
@@ -84,8 +84,8 @@ My_Plots_2(W, ordinal = FALSE)
 #My_Plot_3 gibt zwei Kreuztabellen, eine mit absoluten Haufigkeiten und eine mit relativen Haufigkeiten, in der Konsole aus.
 
 #Datenvektoren zum ausprobieren
-O <- sample(1:7, size=50, replace = TRUE)
-P <- sample(1:7, size=50, replace = TRUE)
+#O <- sample(1:7, size=50, replace = TRUE)
+#P <- sample(1:7, size=50, replace = TRUE)
 
 My_Plots_3 <- function(x,y,both.ordinal = FALSE){
   #x erster Datenvektor, y zweiter Datenvektor
@@ -103,7 +103,7 @@ My_Plots_3 <- function(x,y,both.ordinal = FALSE){
   }
 }
 
-My_Plots_3(O,P,both.ordinal = TRUE)
+#My_Plots_3(O,P,both.ordinal = TRUE)
 
 
 
