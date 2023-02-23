@@ -83,4 +83,29 @@ My_Plots_3(D$Prog_Int, D$Studienfach == "Mathe")
 Visual_data(D = D, n = 3, Int_Mathe = TRUE, Int_Prog = TRUE, data_Studiengang = TRUE)
 # Hier die Ergenisse nochmal alle in einem Plot dargestellt 
 
+#######
+# Zusammenfassung der Ergebnisse 
+
+# Durchschnittsalter: 25 Jahre, Std.abweichung von 2.35
+
+# Studienfächer: Statistik ist am häufigsten vertreten (36%), dann Data Science (28%), dann Informatik (22%)
+# und Mathe ist am wenigsten vertreten (14%)
+
+# Es besteht ein Zusammenhang zwischen dem Interesse an Mathe/Programmieren mit dem Studiengang: 
+# In den Studiengängen Mathe, Statistik und Data Science herrscht ein mittelmäßiges bis hohes interesse an Mathe,
+# während beim Studiengang Informatik nur ein mittelmäßiges Interesse an Mathe besteht.
+# Bei den Studiengängen Informatik und Data Science liegt ein großes Interesse am Programmieren vor.
+
+# Diejenigen, die Mathe-Lk hatten scheinen ein stärkeres Interesse an Mathe zu haben als diejenigen ohne Mathe-Lk.
+
+# Der Mathe-Lk scheint aber keinen/bzw. nur einen geringen Einfluss auf das Interesse an Programmieren zu haben.
+
+# Es besteht keine Korrelation zwischen dem Interesse an Mathe und dem Interesse an Programmieren.
+
+
+
+
+
+
+
 
