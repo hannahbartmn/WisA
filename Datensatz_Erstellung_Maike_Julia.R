@@ -3,18 +3,6 @@
 
 
 
-# TOP SECRET
-
-
-
-
-
-# ACHTUNG Hannah und Alina nicht weiterlesen :)
-
-
-
-
-
 # Variablen:
 
 
