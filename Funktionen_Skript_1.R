@@ -119,9 +119,11 @@ My_Plots_3 <- function(x,y,both.ordinal = FALSE){
 
 ## d)
 
-# Grundgeruest der Funktion fuer Zusammenhang zwischen einer metrischen und einer dichotomen Variable
+# Funktion fuer Zusammenhang zwischen einer metrischen und einer dichotomen Variable
 
 # Es werden 2 Summaries der metrischen Variable ausgegeben, getrennt nach den beiden Auspraegungen der dichotomen Variable
+# Auch eine Haeufigkeitstabelle wird ausgegeben.
+
 # Eingabe: fuer "dich" muss eine dichotome, fuer "met" eine metrische Variable eingegeben werden
 # "dich" und "met" sollten zwei Variablen sein, deren n-te Eintraege jeweils von derselben Person stammen
 
@@ -131,24 +133,24 @@ dichmetsummary <- function(dich, met){
      #ueberprueft, ob "dich" genau zwei Auspraegungen hat
   
   if(!is.numeric(met)){stop("met muss eine metrische Variable sein")} 
-     # ueberprueft, ob "met" eine metrische variable ist
+     # ueberprueft, ob "met" eine metrische Variable ist
   
   if(length(met) != length(dich)){stop("dich und met muessen gleiche Laenge haben")} 
      # uberprueft, ob "dich" und "met" die gleiche Laenge haben.
 
 
 dichfact <- factor(dich, levels = c(names(table(dich))), labels = c(0, 1))
-# Umwandlung der dichotomen variable in einen Factor
+# Umwandlung der dichotomen Variable in einen Factor
   
 # die Summaries werden als 2-elementige Liste zurueckgegeben:
 rgabe <- list(
-  # Summary der metrischen Variable nach der ersten im table ausgefuehrten Auspraegung der dichotomen Variable
+  # Summary der metrischen Variable nach der ersten im table angefuehrten Auspraegung der dichotomen Variable
   summary(met[dichfact == 0]), 
   
-  # Summary der metrischen Variable nach der zweiten im table ausgefuehrten Auspraegung der dichotomen Variable
+  # Summary der metrischen Variable nach der zweiten im table angefuehrten Auspraegung der dichotomen Variable
   summary(met[dichfact == 1]),
   
-  # Tabelle der beiden Variablen
+  # Tabelle der beiden Variablen mit den Namen der Variablen als Ueberschriften
   table(dich, met, dnn = c(deparse(substitute(dich)), deparse(substitute(met))))
                  # dnn = c(gsub("data\\$", "",deparse(substitute(dich))), gsub("data\\$", "",deparse(substitute(met))))
              # Alternative fuer dnn, womit beim eingeben von data$met/data$dich bei denn dimnames das data$ nicht mit angezeigt wird. Funktioniert nur, wenn der eingelesene
@@ -170,10 +172,10 @@ return(rgabe) # Ausgabe der beiden Summaries
 
 ## e)
 # Die Funktion kategorisiert eine numerische Variable quantilbasiert in "niedrig", "mittel" und "hoch"
+# In diesem Fall wurden die Quartile als Grenzen verwendet, womit die mittlere Kategorie doppelt so breit ist wie jeweils die beiden Randkategorien.
+# Fuer drei gleich breite Kategorien koennen das 0.33- und das 0.67-Quantil verwender werden.
 
-# ordinalskalierte Variablen koennen mit der Hilfsfunktion "ordtonum"
-# in Variablen mit numerischen Werten entsprechend ihrer Ordnung
-# umgewandelt werden
+# ordinalskalierte Variablen koennen mit der Hilfsfunktion "ordtonum" in Variablen mit numerischen Werten entsprechend ihrer Ordnung umgewandelt werden
 
 quantkat <- function(x){
   newob <- NULL # leeres Objekt wird erstellt
@@ -202,13 +204,6 @@ b <- c(2, 5, 2, 6, 3, 6)
 
 quantkat(b)
 # [1] "niedrig" "mittel"  "niedrig" "hoch"    "mittel"  "hoch"
-
-
-
-
-
-# man koennte auch 0.33 und 0.66 Quantile nehmen, oder eben die Quartile. 
-# bei den Quartilen waere die mittlere Kategorie doppelt so gross wie jeweils die Extremen
 
 
 
@@ -356,7 +351,7 @@ data_vis2 <- function(a, b, c, d = "fehlt"){
   if(d == "fehlt"){ # Version falls es nur 3 Variablen gibt, sich der default Wert von d also nicht geaendert hat
     
     par(mfrow = c(ceiling(length(table(a))/2), 2)) # die Anzahl der Auspraegungen der ersten Variable wird auf 2 Spalten aufgeteilt, falls
-    # es eine ungerade Anzahl ist, wird aufgerundet, damit auf jeden Fall genug Zeilen da sind
+    # es eine ungerade Anzahl ist (und damit die Haelfte keine ganze Zahl), wird aufgerundet, damit auf jeden Fall genug Zeilen da sind
     
     for(i in 1:length(table(a))){ # fuer jede Auspraegung von a wird ein Barplot erstellt
       
