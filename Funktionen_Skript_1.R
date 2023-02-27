@@ -233,12 +233,13 @@ quantkat(b)
 
 # muss vorher geladen
 install.packages("dplyr")
-library(dplyr)
+library(dplyr)   # benoetigt fuer alle vier Variablen (%>%)
 install.packages("ggplot2")
-library(ggplot2)
+library(ggplot2)  # fuer Erstellung von ggplots
 
 
 Visual_data <- function(D = data, n = 3, Int_Mathe = TRUE, Int_Prog = TRUE, data_Studiengang = TRUE, MatheLK = FALSE){   # n steht dafuer, wie viele Variablen genutzt werden, moeglich sind 3 oder 4
+ # Visualisierungen fuer drei Variablen
   if(n == 3 & Int_Mathe == TRUE & Int_Prog == TRUE & data_Studiengang == TRUE & MatheLK == FALSE){
     print(ggplot(D,                                                                          # ggplot wird vom Datensatz erstellt
            aes(y = factor(Mathe_Int),                                                     # Interesse für Mathe auf y-Achse
@@ -283,6 +284,7 @@ Visual_data <- function(D = data, n = 3, Int_Mathe = TRUE, Int_Prog = TRUE, data
            x = "Studienfach", 
            y = "Interesse an Programmieren", las = 1) )
   }
+  # Visualisierung fuer vier Variablen
   if(n==4 & Int_Mathe == TRUE & Int_Prog == TRUE & data_Studiengang == TRUE & MatheLK == TRUE){
     print(D %>%
       ggplot(aes(y = Mathe_Int, x = Prog_Int, color = Mathe_LK)) +    # ggplot wird erstellt, bei dem die Interessen auf die Achsen kommen und farblich
