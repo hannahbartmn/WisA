@@ -13,7 +13,7 @@ ID <- 1:100   # durchzaehlen von 1 bis 100
 
 # Alter
 # Normalverteilung, EW 25, sd 2
-set.seed(2)
+set.seed(2)          # festlegen des Startes zur Reproduzierbarkeit
 Alter <- round(rnorm(100, mean = 25, sd = 2))
 # 100 Zufallszahlen aus der Normalverteilung gezogen mit EW 25, sd 2
 # gerundet auf volle Jahre
@@ -22,7 +22,7 @@ Alter <- round(rnorm(100, mean = 25, sd = 2))
 # Studienfach 
 # Statistik und Data Science gleiche Wkeit, Informatik geringere Wkeit,
 # Mathe geringste Wkeit
-set.seed(5)
+set.seed(5)          # festlegen des Startes zur Reproduzierbarkeit
 Studienfach <- sample(c("Statistik", "Data Science", "Informatik", "Mathe"), 
        100, replace = TRUE, prob = c(0.35, 0.35, 0.2, 0.1))
 # 100 Ziehungen aus den vier Studienfächern, mit den Wahrscheinlichkeiten
@@ -42,25 +42,25 @@ Mathe_Int <-NULL   # Es wird ein leerer Vektor erstellt
 
 
 # Die Zuordnung fuer das Studienfach Statistik mit verschiedenen Wahrscheinlichkeiten
-set.seed(0902)
+set.seed(0902)          # festlegen des Startes zur Reproduzierbarkeit
 Mathe_Int[which(Studienfach == "Statistik")] <- sample(1:7, size = length(which(Studienfach == "Statistik")),  # fuer das Sampling wird die Anzahl der Studienfaecher gezaehlt
-                                                      replace = TRUE, prob = c(0, 0.01, 0.09, 0.15, 0.2, 0.25, 0.3))  
+                                                      replace = TRUE, prob = c(0, 0.01, 0.09, 0.15, 0.2, 0.25, 0.3))  # hoehere Wahrscheinlichkeit mit steigenden Interesse
 
 
 # Studienfach Data Science
-set.seed(1002)
-Mathe_Int[which(Studienfach == "Data Science")] <- sample(1:7, size = length(which(Studienfach == "Data Science")),
-                                                          replace = TRUE, prob = c(0.0001, 0.0049, 0.005, 0.2, 0.24, 0.3, 0.25)) 
+set.seed(1002)          # festlegen des Startes zur Reproduzierbarkeit
+Mathe_Int[which(Studienfach == "Data Science")] <- sample(1:7, size = length(which(Studienfach == "Data Science")), # fuer das Sampling wird die Anzahl der Studienfaecher gezaehlt
+                                                          replace = TRUE, prob = c(0.0001, 0.0049, 0.005, 0.2, 0.24, 0.3, 0.25)) # bis Interesse 6 steigende Wahr., dann leicht kleiner
 
 # Studienfach Mathe
-set.seed(1102)
-Mathe_Int[which(Studienfach == "Mathe")] <- sample(1:7, size = length(which(Studienfach == "Mathe")),
-                                                   replace = TRUE, prob = c(0, 0, 0.05, 0.1, 0.15, 0.3, 0.4))  
+set.seed(1102)          # festlegen des Startes zur Reproduzierbarkeit
+Mathe_Int[which(Studienfach == "Mathe")] <- sample(1:7, size = length(which(Studienfach == "Mathe")), # fuer das Sampling wird die Anzahl der Studienfaecher gezaehlt
+                                                   replace = TRUE, prob = c(0, 0, 0.05, 0.1, 0.15, 0.3, 0.4))  # steigende Wahr. mit steigenden Interesse
 
 # Studienfach Informatik
-set.seed(1202)
-Mathe_Int[which(Studienfach == "Informatik")] <- sample(1:7, size = length(which(Studienfach == "Informatik")),
-                                                        replace = TRUE, prob = c(0.05, 0.1, 0.15, 0.25, 0.2, 0.15, 0.1))  
+set.seed(1202)          # festlegen des Startes zur Reproduzierbarkeit
+Mathe_Int[which(Studienfach == "Informatik")] <- sample(1:7, size = length(which(Studienfach == "Informatik")), # fuer das Sampling wird die Anzahl der Studienfaecher gezaehlt
+                                                        replace = TRUE, prob = c(0.05, 0.1, 0.15, 0.25, 0.2, 0.15, 0.1))  # Wahr. bei Int. 4 am groessten, zu beiden Extreman kleiner werden
 
 
 
@@ -75,21 +75,21 @@ Prog_Int <- NULL   # Es wird ein leerer Vektor erstellt
 
 
 # Studienfach Statistik, die Anzahl wird hier wieder je nach Groesse der Anzahl der Studienfachs bestimmt
-set.seed(99)
-Prog_Int[which(Studienfach == "Statistik")] <- sample(1:7, size = length(which(Studienfach == "Statistik")),   
-                                                      replace = TRUE, prob = c(0, 0.05, 0.1, 0.15, 0.25, 0.25, 0.2))   
+set.seed(99)          # festlegen des Startes zur Reproduzierbarkeit
+Prog_Int[which(Studienfach == "Statistik")] <- sample(1:7, size = length(which(Studienfach == "Statistik")), # fuer das Sampling wird die Anzahl der Studienfaecher gezaehlt 
+                                                      replace = TRUE, prob = c(0, 0.05, 0.1, 0.15, 0.25, 0.25, 0.2))  # steigende Wahr. bis 5/6, dann wieder geringer 
 # Studienfach Data Science
-set.seed(100)
-Prog_Int[which(Studienfach == "Data Science")] <- sample(1:7, size = length(which(Studienfach == "Data Science")),
-                                                         replace = TRUE, prob = c(0.05, 0.1, 0.1, 0.15, 0.15, 0.2, 0.25)) 
+set.seed(100)          # festlegen des Startes zur Reproduzierbarkeit
+Prog_Int[which(Studienfach == "Data Science")] <- sample(1:7, size = length(which(Studienfach == "Data Science")), # fuer das Sampling wird die Anzahl der Studienfaecher gezaehlt
+                                                         replace = TRUE, prob = c(0.05, 0.1, 0.1, 0.15, 0.15, 0.2, 0.25)) # steigende Wahr. mit steigenden Interesse
 # Studienfach Mathe
-set.seed(64)
-Prog_Int[which(Studienfach == "Mathe")] <- sample(1:7, size = length(which(Studienfach == "Mathe")),
-                                                  replace = TRUE, prob = c(0.05, 0.15, 0.25, 0.25, 0.15, 0.075, 0.075)) 
+set.seed(64)          # festlegen des Startes zur Reproduzierbarkeit
+Prog_Int[which(Studienfach == "Mathe")] <- sample(1:7, size = length(which(Studienfach == "Mathe")), # fuer das Sampling wird die Anzahl der Studienfaecher gezaehlt
+                                                  replace = TRUE, prob = c(0.05, 0.15, 0.25, 0.25, 0.15, 0.075, 0.075)) # steigende Wahr. bis 3/4, dann wieder sinkend
 # Studienfach Inforamtik 
-set.seed(23)
-Prog_Int[which(Studienfach == "Informatik")] <- sample(1:7, size = length(which(Studienfach == "Informatik")),
-                                                       replace = TRUE, prob = c(0, 0, 0.01, 0.09, 0.15, 0.3, 0.45)) 
+set.seed(23)          # festlegen des Startes zur Reproduzierbarkeit
+Prog_Int[which(Studienfach == "Informatik")] <- sample(1:7, size = length(which(Studienfach == "Informatik")), # fuer das Sampling wird die Anzahl der Studienfaecher gezaehlt
+                                                       replace = TRUE, prob = c(0, 0, 0.01, 0.09, 0.15, 0.3, 0.45)) # steigende Wahr. mit steigenden Interesse
 
 
 
@@ -103,12 +103,12 @@ Mathe_LK <- NULL # leerer Vektor
 
 # Ziehung von 100mal ja/nein mit Wkeit abhaengig davon, ob man Interesse an Mathe groesser oder kleiner gleich 4 angegeben hat
 
-set.seed(9)
-Mathe_LK[Mathe_Int > 4] <- sample(c("ja", "nein"), length(Mathe_Int[Mathe_Int > 4]), replace = TRUE, prob = c(0.75, 0.25))
+set.seed(9)          # festlegen des Startes zur Reproduzierbarkeit
+Mathe_LK[Mathe_Int > 4] <- sample(c("ja", "nein"), length(Mathe_Int[Mathe_Int > 4]), replace = TRUE, prob = c(0.75, 0.25)) 
 # wenn das Interesse an Mathematik groesser als 4 ist, ist die Wkeit, Mathe_LK gehabt zu haben, 0.75
 
 
-set.seed(12)
+set.seed(12)          # festlegen des Startes zur Reproduzierbarkeit
 Mathe_LK[Mathe_Int <= 4] <- sample(c("ja", "nein"), length(Mathe_Int[Mathe_Int <= 4]), replace = TRUE, prob = c(0.35, 0.65))
 # wenn das Interesse an Mathematik kleiner gleich 4 ist, ist die Wkeit, Mathe_LK gehabt zu haben, 0.35
 
@@ -121,6 +121,6 @@ Mathe_LK[Mathe_Int <= 4] <- sample(c("ja", "nein"), length(Mathe_Int[Mathe_Int <
 # Dataframe erstellen
 
 data <- data.frame(ID = ID, Alter = Alter, Studienfach = Studienfach, Mathe_Int = Mathe_Int, Prog_Int = Prog_Int, Mathe_LK = Mathe_LK)
-
+# Dataframe names data wird mit den erstellten Vektoren erstellt
 
 
