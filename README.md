@@ -1,7 +1,7 @@
 # WisA
 
 
-Die 3. Teilleitung für unser Modul Wissenschaftliches Arbeiten
+Die 3. Teilleistung für unser Modul Wissenschaftliches Arbeiten
 
 
 Autorinnen: 
@@ -12,7 +12,7 @@ Julia Pohl
 
 
 
-Erste Absprache der groben Aufgabenteilung:
+Absprache der groben Aufgabenteilung:
 
 Erstellung des Datensatzes:
 Maike und Julia
