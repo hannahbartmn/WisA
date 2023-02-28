@@ -22,12 +22,13 @@ My_Plots <- function(x, plot = 0){
     boxplot(x, horizontal = TRUE, main = c("Boxplot fuer", deparse(substitute(x))))
     par(mfrow = c(1,1)) #setze die parameter zurueck 
   }
-  if(plot == 1){
+  if(plot == 1){ # wenn fuer plot der Wert 1 uebergeben wurde, wird nur das Histogramm ausgegeben
     hist(x, main = c("Saeulendiagramm fuer", deparse(substitute(x))))  
   }
-  if(plot == 2){
+  if(plot == 2){ # wenn fuer plot der Wert 2 uebergeben wurde, wird nur der Boxplot ausgegeben
     boxplot(x, horizontal = TRUE, main = c("Boxplot fuer", deparse(substitute(x))))
   }
+  # Ausgeben des arithm. Mittels und der Standardabweichung
   m <- mean(x, na.rm = TRUE)
   s <- sd(x, na.rm=TRUE)
   cat('\n Das aritm. Mittel des Merkmals betraegt:', m, '\n\n Die Standardabweichung des Merkmals betraegt:', s)
@@ -36,6 +37,8 @@ My_Plots <- function(x, plot = 0){
 #My_Plots(random)
 #My_Plots(random, plot = 1)
 #My_Plots(random, plot = 2)
+
+
 
 
 # Funktion b) 
@@ -59,12 +62,12 @@ My_Plots_2 <- function(x, ordinal = TRUE){
       par(mfrow = c(1,1))
     #Die Haufigkeitstabelle 
       print(table(x, dnn = deparse(substitute(x))))
-    
+    #Berechnen des arithmetischen Mittels und der Standardabweichung    
       m <- mean(x, na.rm = TRUE)
       s <- sd(x, na.rm=TRUE)
       cat('\n Das aritm. Mittel des Merkmals betraegt:', m, '\n\n Die Standardabweichung des Merkmals betraegt:', s)
   }
-  
+  #falls die kategorialen Merkmale keine Rangordnung haben:   
   if(ordinal == FALSE){
     #Das Stabdiagramm
       barplot(table(x), main = c("Balkendiagramm fuer", deparse(substitute(x))), horiz = TRUE, las = 1)
@@ -82,6 +85,7 @@ My_Plots_2 <- function(x, ordinal = TRUE){
 #zwei kategorialen Variablen berechnet ausgibt. 
 
 #My_Plot_3 gibt zwei Kreuztabellen, eine mit absoluten Haufigkeiten und eine mit relativen Haufigkeiten, in der Konsole aus.
+#Wenn beide Merkmale ordinal sind, kann man den Parameter both.ordinal auf TRUE setzen, dann berechnet die Funktion noch die Spearman Korrelation der beiden Merkmale.
 
 #Datenvektoren zum ausprobieren
 #O <- sample(1:7, size=50, replace = TRUE)
@@ -89,6 +93,7 @@ My_Plots_2 <- function(x, ordinal = TRUE){
 
 My_Plots_3 <- function(x,y,both.ordinal = FALSE){
   #x erster Datenvektor, y zweiter Datenvektor
+  #Erstellen der Tabelle
   tabelle <- table(x,y,
                    dnn = c(deparse(substitute(x)), deparse(substitute(y)))) #uebernimmt den Namen des Datenvektors
   cat('Tabelle mit absoluten Haufigkeiten: \n\n')
